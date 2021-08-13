@@ -7,7 +7,8 @@ import p66.tiendaropa_66.controlador.ControladorCliente;
 
 public class Menu {
 
-    public void generarMenu(SqliteConnection conexionBD) {
+    public void generarMenu(SqliteConnection conexionBD, String opcionElegida) {
+        /*
         String textoMenu = "Elija su opción: \n" +
                            "1. Crear Cliente \n" +
                            "2. Listar diez primeros clientes \n" +
