@@ -21,14 +21,16 @@ public class Menu {
 
         switch (opcionElegida) {
             case "1":
-                String ident = JOptionPane.showInputDialog(null, "Ingrese la identificación del cliente", "LA TIENDA DE ROPA", JOptionPane.QUESTION_MESSAGE);
+                VentanaNuevoCliente ventanaCliente = new VentanaNuevoCliente(conexionBD);
+                ventanaCliente.setVisible(true);
+                /*String ident = JOptionPane.showInputDialog(null, "Ingrese la identificación del cliente", "LA TIENDA DE ROPA", JOptionPane.QUESTION_MESSAGE);
                 String nombre = JOptionPane.showInputDialog(null, "Ingrese el nombre del cliente", "LA TIENDA DE ROPA", JOptionPane.QUESTION_MESSAGE);
                 String apellido = JOptionPane.showInputDialog(null, "Ingrese el apellido del cliente", "LA TIENDA DE ROPA", JOptionPane.QUESTION_MESSAGE);
-
+*/
                 /*Objeto cliente*/
-                Cliente nuevoCliente = new Cliente(ident, nombre, apellido);
+                // Cliente nuevoCliente = new Cliente(ident, nombre, apellido);
                 // cli1.insertarCliente(nuevoCliente, conexionBD);
-                ctrlCliente.crearCliente(nuevoCliente, conexionBD);
+                // ctrlCliente.crearCliente(nuevoCliente, conexionBD);
                 break;
             case "2":
                 /*Consulta cliente*/

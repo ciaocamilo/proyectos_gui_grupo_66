@@ -2,6 +2,7 @@ package p66.tiendaropa_66.modelo;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 import p66.tiendaropa_66.conexion.SqliteConnection;
 
@@ -10,6 +11,7 @@ public class ClienteDAO {
     public void insertarCliente(Cliente nuevoCliente, SqliteConnection conexionBD) {
         String sentencia = "INSERT INTO Clientes (identificacion, nombres, apellidos) VALUES('" + nuevoCliente.getIdentificacion() + "', '"+ nuevoCliente.getNombres() + "', '" + nuevoCliente.getApellidos() + "')";
         conexionBD.ejecutarSentencia(sentencia);
+        JOptionPane.showMessageDialog(null, "El cliente se resgistró satisfactoriamente", "Nuevo cliente", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public String mostrarClientes(SqliteConnection conexionBD) {
