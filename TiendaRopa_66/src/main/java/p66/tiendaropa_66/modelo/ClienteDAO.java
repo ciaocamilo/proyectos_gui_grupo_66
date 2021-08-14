@@ -2,6 +2,7 @@ package p66.tiendaropa_66.modelo;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import p66.tiendaropa_66.conexion.SqliteConnection;
@@ -14,15 +15,16 @@ public class ClienteDAO {
         JOptionPane.showMessageDialog(null, "El cliente se resgistró satisfactoriamente", "Nuevo cliente", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    public String mostrarClientes(SqliteConnection conexionBD) {
-        String salida = "";
+    public ArrayList<Cliente> mostrarClientes(SqliteConnection conexionBD) {
+        ArrayList<Cliente> salida = new ArrayList<>();
         try {
             ResultSet resultadoClientes = conexionBD.ejecutarConsulta("SELECT * FROM Clientes ORDER BY identificacion LIMIT 10");
             while (resultadoClientes.next()) {
                 String identificacion = resultadoClientes.getString("identificacion");
                 String nombres = resultadoClientes.getString("nombres");
                 String apellidos = resultadoClientes.getString("apellidos");
-                salida = salida.concat(identificacion + " - " + nombres + " - " + apellidos + "\n");
+                // salida = salida.concat(identificacion + " - " + nombres + " - " + apellidos + "\n");
+            salida.add(new Cliente(identificacion, nombres, apellidos));
             }
         } catch (Exception e) {
             System.err.println(e);
